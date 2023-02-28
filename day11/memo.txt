@@ -1,0 +1,31 @@
+solution to part 2 (did not earn it had to lookup the solution for this part, but the code is mine)
+
+https://en.wikipedia.org/wiki/Modular_arithmetic
+
+Basically multiply all the test modulo numbers and use that number on the worry level everytime.
+
+
+The key to this is a modular arithmetic concept. First, you need to multiply all the monkeys' mod values together. Let's call this M. Some say find the LCM but they're small enough you can get away with just the product. Now, after every operation you do to an item worry level, after doing the computation, mod that value with M. If you're adding, add then take that result and mod with M. If you're multiplying, multiply and then mod with M. This will keep your worry values small. Everything else is the same. We are exploiting the property that for all integers k: (a mod km) mod m = a mod m
+
+I have two different ideas for hints and don't know which is better, but looking at both will probably give it away. For whichever you go for, read one at a time, and only continue if you're still very stuck.
+
+Here's the path that's a bit trickier:
+
+    For any integer n which is divisible by P, n-kP is also divisible by P (and same for if it's not). (Also, if n+S is divisible by P, so is (n-kP)+S.)
+
+    Consider a particular value of k. For instance, maybe you pick some Q that you want to know whether n is divisible by or not.
+
+    So, now you know that if n is divisible by 2, so is n-6k. Also, if n is divisible by 3, so is n-6k.
+
+    Surely, if you have it working for two numbers, it's not that hard to figure out how to extend it to eight.
+
+    You can do this whole repeated subtraction by a number thing by just taking the modulo.
+
+Here's the path that's a (lot) easier:
+
+    What is the last digit of (87*19*17+45)^2*7)+19? (no calculators allowed). Is this number divisible by 2? How about 5? (The other friend I sent this to couldn't even do that much, so here's a hint for this hint: If A is a number with 3 as its last digit and B is a number with 7 as its last digit, what is the last digit of A*B? How about for A*B*5635353456364574?)
+
+    Obviously, there's nothing special about taking the last digit. You can go modulo of any other number, and a similar property will hold.
+
+    If your modulo of choice is 210, then you'll be able to easily tell whether a number is divisible by any of 2, 3, 5, or 7.
+
